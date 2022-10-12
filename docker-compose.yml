@@ -1,0 +1,29 @@
+version: "3.8"
+
+services: 
+  postgres_db:
+    image: postgres
+    container_name: database_pg
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=servico_avaliacao
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=1234
+    volumes: 
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: avaliacao_servico_app
+    ports: 
+      - 8080:8080
+    volumes: 
+      - .:/usr/app
+    depends_on: 
+      - postgres_db
+
+volumes:
+  pgdata:
+    driver: local
