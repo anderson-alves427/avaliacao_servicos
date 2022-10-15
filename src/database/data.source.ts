@@ -3,14 +3,16 @@ import { DataSource } from "typeorm"
 
 const AppDataSource = new DataSource({
     type: "postgres",
-    host: "postgres_db",
-    port: 5432,
-    username: "root",
+    host: "localhost",
+    port: 5433,
+    username: "postgres",
     password: "1234",
     database: "servico_avaliacao",
     entities: [],
-    synchronize: true,
+    synchronize: false,
     logging: false,
+    migrations: ["./src/database/migrations/**/*.ts"],
+    migrationsTableName: "migrations",
 })
 
 // to initialize initial connection with the database, register all entities
@@ -18,6 +20,6 @@ const AppDataSource = new DataSource({
 // once in your application bootstrap
 AppDataSource.initialize()
     .then(() => {
-        // here you can start to work with your database
+        console.log("Banco conectado com sucesso!")
     })
     .catch((error) => console.log(error))
