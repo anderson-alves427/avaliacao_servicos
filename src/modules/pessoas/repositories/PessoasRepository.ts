@@ -1,4 +1,4 @@
-import { Pessoa } from "../model/Pessoa";
+import { Pessoa } from "../entities/Pessoa";
 
 class PessoasRepository {
     private pessoas: Pessoa[];

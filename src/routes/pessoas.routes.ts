@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Pessoa } from "../modules/pessoas/model/Pessoa";
+import { Pessoa } from "../modules/pessoas/entities/Pessoa";
 
 const pessoasRoutes = Router();
 

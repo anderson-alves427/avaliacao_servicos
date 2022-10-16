@@ -1,6 +1,19 @@
-class PessoaDTO {
+export class PessoaDTO {
+
+    id: string;
+
     nome: string;
-    data_nascimento: string;
-    email: string;
+
+    cpf: string;
+
+    cnpj: string;
+
     telefone: string;
+
+    data_nascimentos: string;
+
+    email: string;
+
+    created_at: string;
+
 }
